@@ -7,7 +7,7 @@ export function Contact() {
   useEffect(() => {
     (async function () {
       const cal = await getCalApi({"namespace":"project-opportunities"});
-      cal("ui", {"cssVarsPerTheme":{"light":{"cal-brand":"#4b4b4b"}},"hideEventTypeDetails":false,"layout":"month_view"});
+      cal("ui", {"cssVarsPerTheme":{"light":{"cal-brand":"#4b4b4b"}, "dark":{"cal-brand":"#4b4b4b"}},"hideEventTypeDetails":false,"layout":"month_view"});
     })();
   }, []);
 

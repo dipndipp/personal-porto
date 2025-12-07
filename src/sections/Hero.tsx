@@ -97,7 +97,7 @@ export function Hero() {
                       >
                         <Github size={20} />
                       </a>
-                      <a p
+                      <a 
                         href="https://www.linkedin.com/in/dipnadipp/" 
                         target="_blank" 
                         rel="noreferrer"
