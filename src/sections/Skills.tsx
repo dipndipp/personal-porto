@@ -12,7 +12,7 @@ const skillCategories = [
   },
   {
     title: 'Database & Cloud',
-    skills: ['PostgreSQL', 'MongoDB', 'Redis', 'AWS', 'Docker', 'Firebase', 'Supabase']
+    skills: ['Oracle', 'PostgreSQL', 'MongoDB', 'Redis', 'AWS', 'Docker', 'Firebase', 'Supabase']
   },
   {
     title: 'Tools & Management',
