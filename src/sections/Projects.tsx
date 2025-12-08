@@ -11,7 +11,7 @@ const projects = [
     category: 'Digital Monitoring Platform',
     description: 'A comprehensive farming monitoring platform featuring real-time data visualization, transaction monitoring, and predictive reporting using AI based on East Java farming result.',
     tech: ['Next.js', 'TypeScript', 'Tailwind',],
-    image: 'farmetrica.png',
+    image: 'farmetrica.webp',
     demo: 'https://farmetrica-jatim.vercel.app',
     github: 'https://github.com/dipndipp/farmetrica'
   },
@@ -21,7 +21,7 @@ const projects = [
     category: 'Learning Platform',
     description: 'A comprehensive learning platform for civic education in Indonesia based on AI Chatbot and Discussion Forum.',
     tech: ['React.js', 'Go', 'Tailwind', 'Supabase'],
-    image: 'CivicLearn.png',
+    image: 'CivicLearn.webp',
     demo: 'https://civic-learn.vercel.app',
     github: 'https://github.com/dipndipp/CivicLearn'
   },
@@ -31,7 +31,7 @@ const projects = [
     category: 'Web Application',
     description: 'A comprehensive platform for micro and small enterprises to manage and promote their business operations.',
     tech: ['TypeScript', 'OpenRouter', 'Tailwind', 'Framer Motion'],
-    image: 'UMKNext.png',
+    image: 'UMKNext.webp',
     demo: '#',
     github: '#'
   }

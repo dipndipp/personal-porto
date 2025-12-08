@@ -132,7 +132,7 @@ export function Hero() {
                   <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-full bg-gradient-to-br from-accent/20 to-primary/20 p-1">
                     <div className="w-full h-full rounded-full bg-white/90 backdrop-blur-sm overflow-hidden border-4 border-white/50 shadow-2xl">
                       <img 
-                        src="profile-img.png" 
+                        src="profile-img.webp" 
                         alt="Profile" 
                         className="w-full h-full object-cover"
                       />
