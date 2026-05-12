@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ComponentProps, ReactNode, CSSProperties } from 'react';
+import type { ComponentProps, ReactNode, CSSProperties } from 'react';
 
 type Direction = 'up' | 'down' | 'left' | 'right' | 'none';
 
