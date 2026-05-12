@@ -7,19 +7,22 @@ import { Experience } from './sections/Experience';
 import { Education } from './sections/Education';
 import { Contact } from './sections/Contact';
 import { Footer } from './components/Footer';
+import { SmoothScroll } from './components/SmoothScroll';
 
 function App() {
   return (
-    <MainLayout>
-      <Hero />
-      <Metrics />
-      <Skills />
-      <Projects />
-      <Experience />
-      <Education />
-      <Contact />
-      <Footer />
-    </MainLayout>
+    <SmoothScroll>
+      <MainLayout>
+        <Hero />
+        <Metrics />
+        <Skills />
+        <Projects />
+        <Experience />
+        <Education />
+        <Contact />
+        <Footer />
+      </MainLayout>
+    </SmoothScroll>
   );
 }
 

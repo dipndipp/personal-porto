@@ -1,13 +1,15 @@
 import { GlassPanel } from '../components/GlassPanel';
-import { motion } from 'framer-motion';
+import { FadeIn } from '../components/FadeIn';
 import { GraduationCap, Calendar } from 'lucide-react';
+
+// `motion` import removed — FadeIn covers all entry animation.
 
 const education = [
   {
     id: 1,
     degree: 'Bachelor of Applied Data Science',
     institution: 'Politeknik Elektronika Negeri Surabaya',
-    period: '2025 - Currently',
+    period: '2025 - Present',
     description: 'Focused on Data Science and Machine Learning',
   },
   {
@@ -17,34 +19,31 @@ const education = [
     period: '2022 - 2025',
     description: 'Focused on Software Engineering, Algorithms, and Data Structures',
   },
-   {
+  {
     id: 3,
     degree: 'Course',
     institution: 'Timedoor Academy',
     period: '2022 - 2025',
-    description: 'Focused on Website Development, Application Development, Machine Learning, and Data Science',
-  }
+    description:
+      'Focused on Website Development, Application Development, Machine Learning, and Data Science',
+  },
 ];
 
 export function Education() {
   return (
     <section id="education" className="py-20">
-      <div className="mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">Academic <span className="text-accent">Background</span></h2>
+      <FadeIn className="mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          Academic <span className="text-accent">Background</span>
+        </h2>
         <p className="text-text-secondary max-w-2xl">
           My educational journey that shaped my technical foundation.
         </p>
-      </div>
+      </FadeIn>
 
       <div className="grid md:grid-cols-2 gap-6">
         {education.map((edu, index) => (
-          <motion.div
-            key={edu.id}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ delay: index * 0.15 }}
-          >
+          <FadeIn key={edu.id} delay={index * 0.12} direction="up">
             <GlassPanel className="p-8 h-full hover:border-accent/30 transition-colors group">
               <div className="flex items-start gap-4 mb-4">
                 <div className="p-3 rounded-full bg-accent/10 text-accent group-hover:bg-accent/20 transition-colors">
@@ -61,11 +60,9 @@ export function Education() {
                   </div>
                 </div>
               </div>
-              <p className="text-text-secondary leading-relaxed">
-                {edu.description}
-              </p>
+              <p className="text-text-secondary leading-relaxed">{edu.description}</p>
             </GlassPanel>
-          </motion.div>
+          </FadeIn>
         ))}
       </div>
     </section>

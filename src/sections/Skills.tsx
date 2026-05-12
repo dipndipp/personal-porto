@@ -1,48 +1,56 @@
 import { GlassPanel } from '../components/GlassPanel';
-import { motion } from 'framer-motion';
+import { FadeIn } from '../components/FadeIn';
+
+// `motion` import dropped entirely — FadeIn handles all animation needs here.
+// Removing the direct motion.div with `scale` transitions eliminates the
+// Scale → Paint → Composite chain that caused repaints on every card entry.
 
 const skillCategories = [
   {
     title: 'Frontend',
-    skills: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'Framer Motion', 'Three.js', 'And Other Libraries']
+    skills: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'Framer Motion', 'Three.js', 'And Other Libraries'],
   },
   {
     title: 'Backend',
-    skills: ['Go', 'Node.js', 'Express', 'Python', 'Django', 'REST API']
+    skills: ['Go', 'Node.js', 'Express', 'Python', 'Django', 'REST API'],
   },
   {
     title: 'Database & Cloud',
-    skills: ['Oracle', 'PostgreSQL', 'MongoDB', 'Redis', 'AWS', 'Docker', 'Firebase', 'Supabase']
+    skills: ['Oracle', 'PostgreSQL', 'MongoDB', 'Redis', 'AWS', 'Docker', 'Firebase', 'Supabase'],
   },
   {
     title: 'Tools & Management',
-    skills: ['Git', 'Figma', 'Jest', 'CI/CD', 'Notion', 'Lark']
-  }
+    skills: ['Git', 'Figma', 'Notion', 'Lark'],
+  },
 ];
 
 export function Skills() {
   return (
     <section id="skills" className="py-16">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="mb-8"
-      >
-        <h2 className="text-3xl md:text-4xl font-bold mb-3">Technical <span className="text-accent">Stack</span></h2>
+
+      {/* Section heading — single FadeIn, no per-word splits */}
+      <FadeIn className="mb-8">
+        <h2 className="text-3xl md:text-4xl font-bold mb-3">
+          Technical <span className="text-accent">Stack</span>
+        </h2>
         <p className="text-text-secondary max-w-2xl text-base">
           Tools and technologies used to build high-performance applications.
         </p>
-      </motion.div>
+      </FadeIn>
 
+      {/*
+        WHY scale: 0.95 → 1 was bad:
+        Scaling a container that contains text triggers sub-pixel text re-rasterisation
+        on every frame — an expensive Paint operation. Replacing with a pure
+        translate (y: 28 → 0) means only the Composite step runs, keeping the
+        GPU pipeline clean.
+      */}
       <div className="grid md:grid-cols-2 gap-5">
         {skillCategories.map((category, index) => (
-          <motion.div
+          <FadeIn
             key={category.title}
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.1 }}
+            delay={index * 0.08}
+            direction="up"
           >
             <GlassPanel className="p-6 h-full hover:border-accent/30 hover:bg-white/90 transition-all">
               <h3 className="text-lg font-semibold mb-5 flex items-center gap-2">
@@ -60,7 +68,7 @@ export function Skills() {
                 ))}
               </div>
             </GlassPanel>
-          </motion.div>
+          </FadeIn>
         ))}
       </div>
     </section>
